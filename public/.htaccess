@@ -46,3 +46,9 @@ Options All -Indexes
 # Disable server signature start
     ServerSignature Off
 # Disable server signature end
+DirectoryIndex index.php
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^ index.php [L]
+RewriteRule !^(public/|index\.php) [NC,F]
